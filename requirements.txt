@@ -1,0 +1,9 @@
+beautifulsoup4 >= 4.0
+nltk
+
+# for notebook interface
+ipython >= 2.0
+numpy
+pyzmq >= 2.1.11
+jinja2
+tornado

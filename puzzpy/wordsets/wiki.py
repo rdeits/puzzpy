@@ -21,18 +21,20 @@ def category_list(title_or_url):
         fid, temp_fname = tempfile.mkstemp()
         if not os.path.exists(os.path.dirname(fname)):
             os.makedirs(os.path.dirname(fname))
-#         subprocess.call(['wget', url, '-o', temp_fname])
-        subprocess.call(['cp', 'List_of_common_fish_names', temp_fname])
+        subprocess.call(['wget', url, '-O', temp_fname])
+        # subprocess.call(['cp', 'List_of_common_fish_names', temp_fname])
         with open(temp_fname) as f:
             soup = BeautifulSoup(f)
         content = soup.find(id='mw-content-text')
         entries = []
-        for div in content.find_all('div', class_='div-col'):
-            for link in div.find_all('a'):
-                if link.get('href').startswith('/wiki/'):
-                    entries.append(puzzpy.phrase_cleanup(link.get_text()))
+        # for div in content.find_all('div', class_='div-col'):
+        for link in content.find_all('a'):
+            if link.get('href').startswith('/wiki/'):
+                entry = puzzpy.phrase_cleanup(link.get_text())
+                if entry:
+                    entries.append(entry)
         with open(fname, 'w') as f:
-            f.write('\n'.join(entries))
+            f.write('\n'.join(sorted(set(entries))))
     else:
         with open(fname) as f:
             entries = f.read().split('\n')
