@@ -33,3 +33,7 @@ def test():
     matches = sorted(search(SOWPODS, match))
     print('\n'.join(matches))
     assert 'roiling' in matches
+
+
+if __name__ == '__main__':
+    test()
