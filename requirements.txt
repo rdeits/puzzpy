@@ -10,3 +10,6 @@ numpy
 pyzmq >= 2.1.11
 jinja2
 tornado
+
+# for testing
+nose

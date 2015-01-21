@@ -11,4 +11,4 @@ def load_wordlist(wordlist):
     for i, e in enumerate(entries):
         if e.startswith('--'):
             break
-    return set(puzzpy.phrase_cleanup(e) for e in entries[i+1:])
+    return set(puzzpy.phrase_cleanup(e) for e in entries[i+1:] if len(e.strip()) > 0)

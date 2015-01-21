@@ -11,4 +11,4 @@ def file_cleanup(fname):
 
 
 def phrase_cleanup(phrase):
-    return re.sub(r'[^a-z ]', '', phrase.lower())
+    return re.sub(r'[^a-z ]', '', phrase.lower().strip())
