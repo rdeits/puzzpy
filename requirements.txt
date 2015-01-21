@@ -1,6 +1,9 @@
 beautifulsoup4 >= 4.0
 nltk
 
+# for scraping wikipedia
+git+git://github.com/rdeits/Wikipedia.git@fix-continuing-query
+
 # for notebook interface
 ipython >= 2.0
 numpy
